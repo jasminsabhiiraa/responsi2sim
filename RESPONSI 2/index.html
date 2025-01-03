@@ -21,9 +21,9 @@
         <a href="#home" class="w3-bar-item w3-button"><b>Cake</b> Custle</a>
         <!-- Float links to the right. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
-          <a href="#projects" class="w3-bar-item w3-button">About</a>
-          <a href="#about" class="w3-bar-item w3-button">Catalog</a>
-          <a href="#contact" class="w3-bar-item w3-button">Order Form</a>
+          <a href="#about" class="w3-bar-item w3-button">About</a>
+          <a href="#catalog" class="w3-bar-item w3-button">Catalog</a>
+          <a href="#order form" class="w3-bar-item w3-button">Order Form</a>
         </div>
       </div>
     </div>
@@ -49,9 +49,10 @@
         </p>
         <p>Cake Castle berdiri dengan misi menghadirkan kebahagiaan melalui setiap gigitan. Setiap produk yang dihasilkan mencerminkan perhatian terhadap kualitas bahan, keahlian dalam baking, dan kreativitas dalam desain.</p>
       </div>
+      <!-- End Page content -->
 
       <!-- Catalog Section -->
-      <div class="w3-container w3-padding-32" id="Catalog">
+      <div class="w3-container w3-padding-32" id="catalog">
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Catalog</h3>
       </div>
 
@@ -108,9 +109,10 @@
           </div>
         </div>
       </div>
-
+      <!-- End Catalog Section -->
+      
       <!-- Order Section -->
-      <div class="w3-container w3-padding-32" id="contact">
+      <div class="w3-container w3-padding-32" id="order form">
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Order Form</h3>
         <p>Isi formulir di bawah untuk memesan kue favorit Anda! Kami akan memastikan setiap detail pesanan sesuai dengan keinginan Anda.</p>
         <form action="/action_page.php" target="_blank">
@@ -122,16 +124,32 @@
             <i class="fa fa-paper-plane"></i> SEND MESSAGE
         </form>
       </div>
-      <!-- End page content -->
+      <!-- End Order Section -->
 
-    <!-- Footer -->
-     <!-- Footer -->
 </body>
 </html>
     
 <!-- Footer -->
 <footer class="w3-center w3-pink w3-padding-16">
-  <p>Powered by <a href="https://statistics.uii.ac.id/"  title="W3.CSS" target="_blank" class="w3-hover-text-green">jasmin & diva</a></p>
+  <p>Make by <a href="https://statistics.uii.ac.id/"  title="W3.CSS" target="_blank" class="w3-hover-text-green">jasmin & diva</a></p>
 </footer>
  </body>
 </html>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzH4T1xJO9hWuT4sT0RL70YXdrBx_HFHy5Zrqr6HghToGKQPQw0NJsdGWi6uBySzWKIaA/exec'
+  const form = document.forms['order form']
+
+form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        console.log('Success!', response)
+        alert('Pesanan Anda segera diproses!') // Menampilkan notifikasi
+      })
+      .catch(error => {
+        console.error('Error!', error.message)
+        alert('Terjadi kesalahan, silakan coba lagi.') // Notifikasi jika ada error
+      })
+  })
+</script>
